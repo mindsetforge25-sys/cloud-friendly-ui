@@ -8,7 +8,7 @@ export function useShipment(trackingNumber: string | null) {
     queryKey: ['shipment', trackingNumber],
     queryFn: async () => {
       if (!trackingNumber) return null;
-      
+
       const { data, error } = await supabase
         .from('shipments')
         .select('*')
@@ -50,7 +50,7 @@ export function useCreateShipment() {
     mutationFn: async (shipmentData: CreateShipmentData) => {
       // Generate tracking number
       const trackingNumber = 'LT-' + Math.floor(Math.random() * 1000000000).toString().padStart(9, '0') + 'US';
-      
+
       const { data, error } = await supabase
         .from('shipments')
         .insert({
@@ -108,3 +108,47 @@ export function useUpdateShipmentStatus() {
     },
   });
 }
+
+export interface UpdateShipmentData {
+  id: string;
+  sender_name?: string;
+  recipient_name?: string;
+  recipient_address?: string;
+  recipient_phone?: string;
+  origin_location?: string;
+  current_location?: string;
+  destination_location?: string;
+  item_description?: string;
+  carrier?: CarrierType;
+  status?: ShipmentStatus;
+  note?: string;
+}
+
+export function useUpdateShipment() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async (updateData: UpdateShipmentData) => {
+      const { id, ...fields } = updateData;
+
+      const { data, error } = await supabase
+        .from('shipments')
+        .update(fields)
+        .eq('id', id)
+        .select()
+        .single();
+
+      if (error) throw error;
+      return data as Shipment;
+    },
+    onSuccess: (data) => {
+      queryClient.invalidateQueries({ queryKey: ['shipments'] });
+      queryClient.invalidateQueries({ queryKey: ['shipment', data.tracking_number] });
+      toast.success('Shipment updated successfully!');
+    },
+    onError: (error) => {
+      toast.error('Failed to update shipment: ' + error.message);
+    },
+  });
+}
+

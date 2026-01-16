@@ -1,4 +1,4 @@
-import { MapPin, Navigation, Target, User, Home, Truck } from 'lucide-react';
+import { MapPin, Navigation, Target, User, Home, Truck, Package, FileText, Clock } from 'lucide-react';
 import { Shipment, STATUS_LABELS, CARRIER_LABELS } from '@/types/shipment';
 import { ShipmentTimeline } from './ShipmentTimeline';
 import { Card, CardContent } from '@/components/ui/card';
@@ -90,6 +90,61 @@ export function ShipmentDetails({ shipment }: ShipmentDetailsProps) {
               </div>
             </div>
           </div>
+
+          {/* Time to Deliver */}
+          {shipment.recipient_phone && (
+            <div className="mt-4 p-4 sm:p-5 bg-accent/50 rounded-xl">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                  <Clock className="w-5 h-5 text-primary-foreground" />
+                </div>
+                <div>
+                  <p className="text-xs text-muted-foreground uppercase tracking-wide mb-0.5">
+                    Time to Deliver
+                  </p>
+                  <p className="font-semibold text-foreground text-lg">
+                    {shipment.recipient_phone}
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Item Description & Note */}
+          {(shipment.item_description || shipment.note) && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 p-4 sm:p-5 bg-muted/50 rounded-xl">
+              {shipment.item_description && (
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 rounded-full bg-background flex items-center justify-center flex-shrink-0">
+                    <Package className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-muted-foreground uppercase tracking-wide mb-0.5">
+                      Item Description
+                    </p>
+                    <p className="font-medium text-foreground">
+                      {shipment.item_description}
+                    </p>
+                  </div>
+                </div>
+              )}
+              {shipment.note && (
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 rounded-full bg-background flex items-center justify-center flex-shrink-0">
+                    <FileText className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-muted-foreground uppercase tracking-wide mb-0.5">
+                      Note
+                    </p>
+                    <p className="font-medium text-foreground">
+                      {shipment.note}
+                    </p>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
 
           {/* Carrier */}
           {shipment.carrier && (

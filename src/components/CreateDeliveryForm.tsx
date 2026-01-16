@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Building, User, MapPin, Phone, Mail, Package, Truck, Zap, Copy, Check } from 'lucide-react';
+import { Building, User, MapPin, Clock, Package, Truck, Zap, Copy, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -21,8 +21,7 @@ export function CreateDeliveryForm() {
     sender_name: '',
     recipient_name: '',
     recipient_address: '',
-    recipient_phone: '',
-    recipient_email: '',
+    time_to_deliver: '',
     origin_location: '',
     destination_location: '',
     item_description: '',
@@ -37,8 +36,7 @@ export function CreateDeliveryForm() {
         sender_name: formData.sender_name,
         recipient_name: formData.recipient_name,
         recipient_address: formData.recipient_address,
-        recipient_phone: formData.recipient_phone || undefined,
-        recipient_email: formData.recipient_email || undefined,
+        recipient_phone: formData.time_to_deliver || undefined,
         origin_location: formData.origin_location,
         destination_location: formData.destination_location,
         item_description: formData.item_description || undefined,
@@ -53,8 +51,7 @@ export function CreateDeliveryForm() {
         sender_name: '',
         recipient_name: '',
         recipient_address: '',
-        recipient_phone: '',
-        recipient_email: '',
+        time_to_deliver: '',
         origin_location: '',
         destination_location: '',
         item_description: '',
@@ -132,29 +129,16 @@ export function CreateDeliveryForm() {
             />
           </div>
 
-          {/* Phone & Email */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <Label htmlFor="recipient_phone">Recipient Phone Number</Label>
-              <Input
-                id="recipient_phone"
-                placeholder="+1 (555) 000-0000"
-                value={formData.recipient_phone}
-                onChange={(e) => handleChange('recipient_phone', e.target.value)}
-                icon={<Phone className="w-4 h-4" />}
-              />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="recipient_email">Email</Label>
-              <Input
-                id="recipient_email"
-                type="email"
-                placeholder="recipient@example.com"
-                value={formData.recipient_email}
-                onChange={(e) => handleChange('recipient_email', e.target.value)}
-                icon={<Mail className="w-4 h-4" />}
-              />
-            </div>
+          {/* Time to Deliver */}
+          <div className="space-y-2">
+            <Label htmlFor="time_to_deliver">Time to Deliver</Label>
+            <Input
+              id="time_to_deliver"
+              placeholder="e.g. 2 Hours, 3 Days"
+              value={formData.time_to_deliver}
+              onChange={(e) => handleChange('time_to_deliver', e.target.value)}
+              icon={<Clock className="w-4 h-4" />}
+            />
           </div>
 
           {/* Sender Location & Destination */}

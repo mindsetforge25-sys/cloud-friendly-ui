@@ -1,6 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Package, Search } from 'lucide-react';
-import { Header } from '@/components/Header';
 import { ShipmentDetails } from '@/components/ShipmentDetails';
 import { useShipment } from '@/hooks/useShipments';
 import { Button } from '@/components/ui/button';
@@ -12,16 +11,7 @@ const TrackShipment = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
-      
       <main className="container py-8 sm:py-12 lg:py-16 px-4">
-        {/* Brand */}
-        <div className="text-center mb-8 sm:mb-12">
-          <h1 className="text-2xl sm:text-3xl font-display font-bold text-primary">
-            LogiTrack
-          </h1>
-        </div>
-
         {isLoading && (
           <div className="max-w-3xl mx-auto">
             <div className="bg-card rounded-xl border border-border/50 p-6 sm:p-8 shadow-card">
@@ -76,3 +66,4 @@ const TrackShipment = () => {
 };
 
 export default TrackShipment;
+

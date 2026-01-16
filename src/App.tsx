@@ -10,6 +10,7 @@ import ManageDeliveries from "./pages/ManageDeliveries";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
 import NotFound from "./pages/NotFound";
+import { ProtectedRoute } from "./components/ProtectedRoute";
 
 const queryClient = new QueryClient();
 
@@ -22,10 +23,10 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/track/:trackingNumber" element={<TrackShipment />} />
-          <Route path="/create" element={<CreateDelivery />} />
-          <Route path="/manage" element={<ManageDeliveries />} />
+          <Route path="/create" element={<ProtectedRoute><CreateDelivery /></ProtectedRoute>} />
+          <Route path="/manage" element={<ProtectedRoute><ManageDeliveries /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminLogin />} />
-          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/admin/dashboard" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
@@ -35,3 +36,4 @@ const App = () => (
 );
 
 export default App;
+
