@@ -28,7 +28,7 @@ export function ShipmentTimeline({ currentStatus }: ShipmentTimelineProps) {
       {/* Pending Payment Notice */}
       {currentStatus === 'pending_payment' && (
         <div className="mb-4 p-3 bg-warning/10 border border-warning/30 rounded-lg text-center">
-          <p className="text-sm font-medium text-warning">Pending Payment - Shipment on hold</p>
+          <p className="text-sm font-medium text-warning">Pending Payment - Delivery on hold</p>
         </div>
       )}
 

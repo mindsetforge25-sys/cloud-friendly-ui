@@ -13,7 +13,7 @@ const Index = () => {
               <Package className="w-8 h-8 sm:w-10 sm:h-10 text-primary" />
             </div>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4">
-              Track Your Shipment
+              Track Your Package
             </h1>
             <p className="text-base sm:text-lg text-muted-foreground max-w-md mx-auto">
               Enter your tracking number to get real-time updates on your package's journey.

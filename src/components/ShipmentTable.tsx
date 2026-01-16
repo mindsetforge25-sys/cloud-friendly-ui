@@ -124,7 +124,7 @@ export function ShipmentTable({ shipments, statusFilter, searchQuery = '' }: Shi
       recipient_phone: editForm.recipient_phone || undefined,
       origin_location: editForm.origin_location,
       current_location: editForm.current_location || undefined,
-      destination_location: editForm.destination_location,
+      destination_location: editForm.recipient_address,
       item_description: editForm.item_description || undefined,
       carrier: editForm.carrier,
       status: editForm.status,
@@ -427,25 +427,14 @@ export function ShipmentTable({ shipments, statusFilter, searchQuery = '' }: Shi
             </div>
 
             {/* Locations */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <Label htmlFor="edit_origin">Origin Location</Label>
-                <Input
-                  id="edit_origin"
-                  value={editForm.origin_location}
-                  onChange={(e) => handleFormChange('origin_location', e.target.value)}
-                  icon={<MapPin className="w-4 h-4" />}
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="edit_destination">Destination Location</Label>
-                <Input
-                  id="edit_destination"
-                  value={editForm.destination_location}
-                  onChange={(e) => handleFormChange('destination_location', e.target.value)}
-                  icon={<MapPin className="w-4 h-4" />}
-                />
-              </div>
+            <div className="space-y-2">
+              <Label htmlFor="edit_origin">Origin Location</Label>
+              <Input
+                id="edit_origin"
+                value={editForm.origin_location}
+                onChange={(e) => handleFormChange('origin_location', e.target.value)}
+                icon={<MapPin className="w-4 h-4" />}
+              />
             </div>
 
             {/* Current Location */}

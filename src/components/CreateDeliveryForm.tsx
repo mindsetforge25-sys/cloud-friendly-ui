@@ -22,8 +22,7 @@ export function CreateDeliveryForm() {
     recipient_name: '',
     recipient_address: '',
     time_to_deliver: '',
-    origin_location: '',
-    destination_location: '',
+    origin_location: 'FACILITY',
     item_description: '',
     carrier: 'other' as CarrierType,
   });
@@ -38,7 +37,7 @@ export function CreateDeliveryForm() {
         recipient_address: formData.recipient_address,
         recipient_phone: formData.time_to_deliver || undefined,
         origin_location: formData.origin_location,
-        destination_location: formData.destination_location,
+        destination_location: formData.recipient_address,
         item_description: formData.item_description || undefined,
         carrier: formData.carrier,
       });
@@ -52,8 +51,7 @@ export function CreateDeliveryForm() {
         recipient_name: '',
         recipient_address: '',
         time_to_deliver: '',
-        origin_location: '',
-        destination_location: '',
+        origin_location: 'FACILITY',
         item_description: '',
         carrier: 'other' as CarrierType,
       });
@@ -77,8 +75,7 @@ export function CreateDeliveryForm() {
     formData.sender_name &&
     formData.recipient_name &&
     formData.recipient_address &&
-    formData.origin_location &&
-    formData.destination_location;
+    formData.origin_location;
 
   return (
     <Card className="w-full max-w-2xl mx-auto shadow-card border-border/50 animate-fade-in">
@@ -141,30 +138,17 @@ export function CreateDeliveryForm() {
             />
           </div>
 
-          {/* Sender Location & Destination */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <Label htmlFor="origin_location">Sender Location</Label>
-              <Input
-                id="origin_location"
-                placeholder="City, Country"
-                value={formData.origin_location}
-                onChange={(e) => handleChange('origin_location', e.target.value)}
-                icon={<MapPin className="w-4 h-4" />}
-                required
-              />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="destination_location">Destination Location</Label>
-              <Input
-                id="destination_location"
-                placeholder="City, Country"
-                value={formData.destination_location}
-                onChange={(e) => handleChange('destination_location', e.target.value)}
-                icon={<MapPin className="w-4 h-4" />}
-                required
-              />
-            </div>
+          {/* Sender Location */}
+          <div className="space-y-2">
+            <Label htmlFor="origin_location">Location</Label>
+            <Input
+              id="origin_location"
+              placeholder="City, Country"
+              value={formData.origin_location}
+              onChange={(e) => handleChange('origin_location', e.target.value)}
+              icon={<MapPin className="w-4 h-4" />}
+              required
+            />
           </div>
 
           {/* Item Description */}

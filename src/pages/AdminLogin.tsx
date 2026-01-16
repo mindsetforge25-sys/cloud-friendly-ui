@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Lock, ArrowRight } from 'lucide-react';
+import { Lock, ArrowRight, Eye, EyeOff } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -10,6 +10,7 @@ const ADMIN_PASSKEY = 'Hustle';
 
 const AdminLogin = () => {
   const [passkey, setPasskey] = useState('');
+  const [showPasskey, setShowPasskey] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -44,14 +45,28 @@ const AdminLogin = () => {
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
-            <Input
-              type="password"
-              placeholder="Enter passkey"
-              value={passkey}
-              onChange={(e) => setPasskey(e.target.value)}
-              icon={<Lock className="w-4 h-4" />}
-              required
-            />
+            <div className="relative">
+              <Input
+                type={showPasskey ? "text" : "password"}
+                placeholder="Enter passkey"
+                value={passkey}
+                onChange={(e) => setPasskey(e.target.value)}
+                icon={<Lock className="w-4 h-4" />}
+                required
+                className="pr-10"
+              />
+              <button
+                type="button"
+                onClick={() => setShowPasskey(!showPasskey)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {showPasskey ? (
+                  <EyeOff className="w-4 h-4" />
+                ) : (
+                  <Eye className="w-4 h-4" />
+                )}
+              </button>
+            </div>
             <Button
               type="submit"
               variant="hero"

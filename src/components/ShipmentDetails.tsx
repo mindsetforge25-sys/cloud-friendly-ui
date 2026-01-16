@@ -17,7 +17,7 @@ export function ShipmentDetails({ shipment }: ShipmentDetailsProps) {
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 sm:mb-8">
             <div>
               <p className="text-xs sm:text-sm text-muted-foreground uppercase tracking-wide mb-1">
-                Shipment Status
+                Delivery Status
               </p>
               <div className="flex items-center gap-2">
                 <h2 className="text-xl sm:text-2xl font-display font-bold text-foreground">
@@ -42,23 +42,22 @@ export function ShipmentDetails({ shipment }: ShipmentDetailsProps) {
           </div>
 
           {/* Location Info */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-            <LocationCard
-              label="Origin"
-              value={shipment.origin_location}
-              icon={<MapPin className="w-5 h-5" />}
-            />
-            <LocationCard
-              label="Current Location"
-              value={shipment.current_location || 'Processing'}
-              icon={<Navigation className="w-5 h-5" />}
-              highlighted
-            />
-            <LocationCard
-              label="Destination"
-              value={shipment.destination_location}
-              icon={<Target className="w-5 h-5" />}
-            />
+          <div className="mb-6 mx-auto">
+            <div className="flex items-center gap-4 p-4 sm:p-5 bg-muted/50 rounded-xl">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-background flex items-center justify-center flex-shrink-0 shadow-sm border border-border/50">
+                <MapPin className="w-6 h-6 text-primary" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-xs text-muted-foreground uppercase tracking-wide mb-1">
+                  Origin Location
+                </p>
+                <div className="flex items-center justify-between gap-4">
+                  <p className="font-semibold text-foreground text-lg sm:text-xl truncate">
+                    {shipment.origin_location}
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Recipient Info */}
