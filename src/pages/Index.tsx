@@ -26,12 +26,11 @@ const Index = () => {
           </div>
 
           {/* Carrier Logos */}
-          <div className="mt-10 sm:mt-14 flex items-center gap-6 sm:gap-8 opacity-60">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded bg-foreground/10" />
-            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded bg-foreground/10" />
-            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-primary/20" />
-            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded bg-foreground/10" />
-            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded bg-foreground/10" />
+          <div className="mt-10 sm:mt-14 flex items-center gap-6 sm:gap-8">
+            <img src="/images/carriers/fedex.png" alt="FedEx" className="h-6 sm:h-8 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+            <img src="/images/carriers/dhl.png" alt="DHL" className="h-6 sm:h-8 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+            <img src="/images/carriers/ups.png" alt="UPS" className="h-8 sm:h-10 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+            <img src="/images/carriers/usps.png" alt="USPS" className="h-6 sm:h-8 object-contain opacity-80 hover:opacity-100 transition-opacity" />
           </div>
         </div>
       </main>

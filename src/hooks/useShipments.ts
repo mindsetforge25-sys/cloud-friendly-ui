@@ -48,8 +48,13 @@ export function useCreateShipment() {
 
   return useMutation({
     mutationFn: async (shipmentData: CreateShipmentData) => {
-      // Generate tracking number
-      const trackingNumber = 'LT-' + Math.floor(Math.random() * 1000000000).toString().padStart(9, '0') + 'US';
+      // Generate tracking number (e.g. LT-V3TI5J)
+      const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      let randomStr = '';
+      for (let i = 0; i < 6; i++) {
+        randomStr += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      const trackingNumber = `LT-${randomStr}`;
 
       const { data, error } = await supabase
         .from('shipments')
