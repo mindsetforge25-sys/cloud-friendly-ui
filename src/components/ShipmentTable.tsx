@@ -25,7 +25,7 @@ interface ShipmentTableProps {
 
 const STATUS_COLORS: Record<ShipmentStatus, string> = {
   ordered: 'bg-muted text-muted-foreground',
-  shipped: 'bg-info/10 text-info',
+  Delivered: 'bg-info/10 text-info',
   in_transit: 'bg-primary/10 text-primary',
   out_for_delivery: 'bg-warning/10 text-warning',
   delivered: 'bg-success/10 text-success',
@@ -458,7 +458,7 @@ export function ShipmentTable({ shipments, statusFilter, searchQuery = '' }: Shi
                   id="edit_item_description"
                   value={editForm.item_description}
                   onChange={(e) => handleFormChange('item_description', e.target.value)}
-                  placeholder="What is being shipped?"
+                  placeholder="What is being Delivered?"
                   className="pl-10 min-h-[80px] resize-none"
                 />
               </div>

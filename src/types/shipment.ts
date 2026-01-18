@@ -1,4 +1,4 @@
-export type ShipmentStatus = 'ordered' | 'shipped' | 'in_transit' | 'out_for_delivery' | 'delivered' | 'pending_payment';
+export type ShipmentStatus = 'ordered' | 'Delivered' | 'in_transit' | 'out_for_delivery' | 'delivered' | 'pending_payment';
 
 export type CarrierType = 'fedex' | 'ups' | 'dhl' | 'usps' | 'other';
 
@@ -35,7 +35,7 @@ export interface CreateShipmentData {
 
 export const STATUS_LABELS: Record<ShipmentStatus, string> = {
   ordered: 'Ordered',
-  shipped: 'Shipped',
+  Delivered: 'Delivered',
   in_transit: 'In Transit',
   out_for_delivery: 'Out for Delivery',
   delivered: 'Delivered',
@@ -50,4 +50,4 @@ export const CARRIER_LABELS: Record<CarrierType, string> = {
   other: 'Other',
 };
 
-export const STATUS_ORDER: ShipmentStatus[] = ['ordered', 'shipped', 'in_transit', 'out_for_delivery', 'delivered', 'pending_payment'];
+export const STATUS_ORDER: ShipmentStatus[] = ['ordered', 'Delivered', 'in_transit', 'out_for_delivery', 'delivered', 'pending_payment'];

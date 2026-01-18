@@ -1,5 +1,5 @@
 -- Create enum for shipment status
-CREATE TYPE public.shipment_status AS ENUM ('ordered', 'shipped', 'in_transit', 'out_for_delivery', 'delivered');
+CREATE TYPE public.shipment_status AS ENUM ('ordered', 'Delivered', 'in_transit', 'out_for_delivery', 'delivered');
 
 -- Create enum for carrier
 CREATE TYPE public.carrier_type AS ENUM ('fedex', 'ups', 'dhl', 'usps', 'other');

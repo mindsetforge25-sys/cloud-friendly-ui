@@ -8,7 +8,7 @@ interface StatsCardsProps {
 
 export function StatsCards({ shipments }: StatsCardsProps) {
   const inTransit = shipments.filter((s) => s.status === 'in_transit').length;
-  const atFacility = shipments.filter((s) => s.status === 'shipped' || s.status === 'ordered').length;
+  const atFacility = shipments.filter((s) => s.status === 'Delivered' || s.status === 'ordered').length;
   const delivered = shipments.filter((s) => s.status === 'delivered').length;
   const exceptions = shipments.filter((s) => s.status === 'out_for_delivery').length;
 

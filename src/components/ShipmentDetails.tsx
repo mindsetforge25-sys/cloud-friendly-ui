@@ -49,7 +49,7 @@ export function ShipmentDetails({ shipment }: ShipmentDetailsProps) {
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-xs text-muted-foreground uppercase tracking-wide mb-1">
-                  Origin Location
+                  Packaging Location
                 </p>
                 <div className="flex items-center justify-between gap-4">
                   <p className="font-semibold text-foreground text-lg sm:text-xl truncate">
@@ -149,7 +149,7 @@ export function ShipmentDetails({ shipment }: ShipmentDetailsProps) {
           {shipment.carrier && (
             <div className="mt-4 text-center">
               <span className="text-sm text-muted-foreground">
-                Shipped via <span className="font-medium text-foreground">{CARRIER_LABELS[shipment.carrier]}</span>
+                Delivered via <span className="font-medium text-foreground">{CARRIER_LABELS[shipment.carrier]}</span>
               </span>
             </div>
           )}

@@ -8,7 +8,7 @@ interface ShipmentTimelineProps {
 
 const STATUS_ICONS: Record<ShipmentStatus, React.ReactNode> = {
   ordered: <Package className="w-4 h-4" />,
-  shipped: <Check className="w-4 h-4" />,
+  Delivered: <Check className="w-4 h-4" />,
   in_transit: <Truck className="w-4 h-4" />,
   out_for_delivery: <MapPin className="w-4 h-4" />,
   delivered: <Home className="w-4 h-4" />,

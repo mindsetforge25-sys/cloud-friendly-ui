@@ -168,7 +168,7 @@ export function CreateDeliveryForm() {
 
           {/* Carrier */}
           <div className="space-y-2">
-            <Label htmlFor="carrier">Shipped By</Label>
+            <Label htmlFor="carrier">Delivered By</Label>
             <Select
               value={formData.carrier}
               onValueChange={(value) => handleChange('carrier', value)}
