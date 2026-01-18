@@ -49,7 +49,7 @@ export function ShipmentDetails({ shipment }: ShipmentDetailsProps) {
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-xs text-muted-foreground uppercase tracking-wide mb-1">
-                  Packaging Location
+                  Package Location
                 </p>
                 <div className="flex items-center justify-between gap-4">
                   <p className="font-semibold text-foreground text-lg sm:text-xl truncate">
