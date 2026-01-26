@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { toast } from 'sonner';
 
-const ADMIN_PASSKEY = 'Hustle';
+const ADMIN_PASSKEY = 'Bambam';
 
 const AdminLogin = () => {
   const [passkey, setPasskey] = useState('');
