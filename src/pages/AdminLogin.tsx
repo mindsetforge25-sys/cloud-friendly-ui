@@ -19,7 +19,7 @@ const AdminLogin = () => {
     setIsLoading(true);
 
     setTimeout(() => {
-      if (passkey === ADMIN_PASSKEY) {
+      if (passkey.trim().toLowerCase() === ADMIN_PASSKEY.toLowerCase()) {
         sessionStorage.setItem('adminAuthenticated', 'true');
         toast.success('Access granted!');
         navigate('/admin/dashboard');

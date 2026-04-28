@@ -25,7 +25,7 @@ interface ShipmentTableProps {
 
 const STATUS_COLORS: Record<ShipmentStatus, string> = {
   ordered: 'bg-muted text-muted-foreground',
-  Delivered: 'bg-info/10 text-info',
+  shipped: 'bg-info/10 text-info',
   in_transit: 'bg-primary/10 text-primary',
   out_for_delivery: 'bg-warning/10 text-warning',
   delivered: 'bg-success/10 text-success',
